@@ -11,4 +11,5 @@ class Fournisseur {
     Boolean actif = true
     String motifDesactivation
     Date dateCreated
+
 }
