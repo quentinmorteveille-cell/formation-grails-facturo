@@ -12,7 +12,6 @@ class Fournisseur {
     String motifDesactivation
     Date dateCreated
 
-
     static constraints = {
         code                blank: false, size: 3..20, matches: /[A-Z0-9-]+/, unique: true
         raisonSociale       blank: false, maxSize: 120
