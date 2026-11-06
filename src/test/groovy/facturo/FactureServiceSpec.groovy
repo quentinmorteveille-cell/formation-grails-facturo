@@ -17,13 +17,27 @@ class FactureServiceSpec extends Specification implements ServiceUnitTest<Factur
     Produit produit
 
     void setupSpec() {
-        mockDomains Client, Produit, Facture, LigneFacture
+    	mockDomains Client, Fournisseur, Produit, Facture, LigneFacture
     }
 
     void setup() {
-        client = new Client(code: 'ACME', raisonSociale: 'Acme', tauxRemise: 5).save(failOnError: true)
-        produit = new Produit(reference: 'VIS', libelle: 'Vis', prixUnitaireHt: 12.90, tauxTva: 20, stock: 10).save(failOnError: true)
-    }
+    client = new Client(code: 'ACME', raisonSociale: 'Acme', tauxRemise: 5).save(failOnError: true)
+
+    Fournisseur fournisseur = new Fournisseur(
+            code: 'TEST-FACTURE',
+            raisonSociale: 'Fournisseur de test',
+            siret: '12345678900015'
+    ).save(failOnError: true)
+
+    produit = new Produit(
+            reference: 'VIS',
+            libelle: 'Vis',
+            prixUnitaireHt: 12.90,
+            tauxTva: 20,
+            stock: 10,
+            fournisseur: fournisseur
+    ).save(failOnError: true)
+}
 
     void "une ligne recopie prix, TVA et remise client"() {
         given:

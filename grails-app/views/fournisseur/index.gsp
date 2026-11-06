@@ -7,6 +7,10 @@
 <body>
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1><g:message code="fournisseur.liste.titre"/></h1>
+
+    <g:link action="create" class="btn btn-primary">
+        Nouveau fournisseur
+    </g:link>
 </div>
 
 <g:if test="${fournisseurs}">
