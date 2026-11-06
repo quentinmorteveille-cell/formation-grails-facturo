@@ -13,6 +13,7 @@ class Produit {
     Integer stock = 0
     Fournisseur fournisseur
 
+
     static constraints = {
         reference      blank: false, maxSize: 30, unique: true
         libelle        blank: false, maxSize: 120
