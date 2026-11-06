@@ -11,6 +11,7 @@ class Produit {
     BigDecimal prixUnitaireHt
     BigDecimal tauxTva = 20.0
     Integer stock = 0
+    Fournisseur fournisseur
 
     static constraints = {
         reference      blank: false, maxSize: 30, unique: true
